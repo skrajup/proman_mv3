@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');    
+body {
+    width: 800px;
+    font-family: 'Mulish', sans-serif;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.whole-wrapper {
+    width: 100%;
+    margin: auto;
+}
+
+#menu {
+    width: 100%;
+    margin: 0 auto 10px;
+    transition: width 1s;
+}
+#menu table {
+    width: 100%;
+    text-align: center;
+}
+#menu table th {
+    padding: 0;
+    width: 50%;
+    border-bottom: 0.2px ridge rgb(56, 56, 56);
+    cursor: pointer;
+    transition-duration: 500ms;
+    box-sizing: border-box;
+}
+#menu table th a {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px 15px;
+    transition-duration: 500ms;
+}
+
+#menu table th:hover {
+    box-shadow: inset rgb(0, 0, 0) 0px 0px 2px;
+}
+
+#menu table th a:hover {
+    color: rgb(0, 28, 119);
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+
+.site-blocker-container {
+    transition: width 1s;
+}
+#gen-blocked-container, #pattern-blocked-container {
+    margin-bottom: 20px;
+    font-size: small;
+}
+
+#site {
+    word-break:break-all;
+    margin-right: 20px;
+}
+
+.delete {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* tasks todo style starts here */
+.todo-label {
+    margin-top: 10px;
+    font-size: large;
+}
+input[type=text],
+input[type=datetime-local]{
+    border: 0.2px solid rgb(142, 142, 142);
+}
+
+input[type=text]:focus,
+input[type=datetime-local]:focus{
+    outline-width: 0;
+}
+
+.custom_submit_button {
+    background: rgb(255, 0, 0);  
+    color: rgb(255, 255, 255);
+    border: 0.2px solid rgb(255, 0, 0);
+}
+
+.custom_submit_button:hover{
+    background: #fff;
+    color: rgb(255, 0, 0);
+    border: 0.2px solid rgb(255, 0, 0);
+    transition-duration: 300ms;
+}
+
+#addTodo {
+    background: #8A2387;  
+    color: rgb(255, 255, 255);
+    border: 0.2px solid #8A2387;
+    padding-top: 0.625rem;
+    height: 38px;
+    transition:background .3s,color .3s;
+}
+#addTodo:hover {
+    color: #8A2387;
+    background: #fff;
+    border: 0.2px solid #8A2387;
+}
+input:hover,input:focus {
+    transition:background 300ms, box-shadow 300ms;
+    box-shadow: inset floralwhite 0 0 2px;
+    outline-width: 0;
+}
+
+.todo_container {
+    transition: width 1s;
+}
+.todos li{
+    background: rgb(255, 255, 255);
+}
+#gen-block-list li,
+#pattern-block-list li{
+    word-break:break-all;
+    border: 0.2px solid #ffbbbb;
+}
+.filtered{
+    display: none !important;
+}
+
+#blockGenUrlsCount,
+#blockPatternsCount{
+    margin: 0;
+}
+
+.horiline {
+    border: none;
+    border-top: 5px #ccc solid;
+    margin: 10px auto;
+}
+.add {
+    margin-top: 20px;
+}
+
+.credits {
+    margin: auto;
+}
+
+.credits > div > small > a {
+    text-decoration: dashed;
+    color: rgb(169, 169, 169);
+}
+
+.credit-btn {
+    background: #8A2387;  
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    border: none;
+}
+
+#btp {
+    position: sticky;
+    bottom: 10px;
+    left: 90%;
+    padding: 10px 15px;
+    color: chocolate;
+    border: 0.2px solid chocolate;
+    border-radius: 50%;
+    transition-duration: 500ms;
+}
+
+#btp:hover {
+    color: rgb(255, 255, 255);
+    background: chocolate;
+    border: 0.2px solid chocolate;
+}
+
+
+/* notes sections styling */
+.notebox {
+    width: 90%;
+    margin: auto;
+    margin-top:20px;
+}
+
+.notes {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;  
+}
+
+#notetitle{
+    width: 130px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 5px;
+    color: #000;
+    transition: width 0.4s ease-in-out;
+}
+
+#notetitle:focus {
+    width: 100%;
+}
+
+#detail {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+#noteAction {
+    width: 100%;
+    margin: 5px auto;
+}
+
+.noteActionBtn {
+    width: 20%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#clear {
+    background-color: #F27121;
+    color: white;
+}
+
+#preview {
+    background-color: aqua;
+    color: rgb(0, 0, 0);
+}
+
+#save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.saved {
+    margin: 20px auto;
+    background-color:#f2f2f2;
+}
+
+.note {
+    margin: 10px 20px;
+    background-color: #fff;
+    border:2px solid #000000 ;
+    border-radius: .25rem;
+}
+
+.note-title, .note-detail {
+    color: #000;
+}
+/* .note-title{
+    font-weight: 600;
+} */
+.removeNote {
+    width: 15%;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #e21c1c;
+    color: white;
+    transition: background-color 0.4s ease-in-out;
+}
+.removeNote:focus,.removeNote:hover{
+    background-color: #c42121;
+}
+
+
+/* media queries */
+@media only screen and (max-width: 1000px) {
+    .whole-wrapper {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .whole-wrapper {
+        width: 100%;
+    }
+}
