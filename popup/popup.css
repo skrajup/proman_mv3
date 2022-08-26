@@ -115,7 +115,7 @@ body::-webkit-scrollbar-thumb{
 
 form > input {
     display: block;
-    width: 60%;
+    width: 80%;
     margin:5px auto ;
     padding: 10px 10px;
     border: 0.2px solid rgb(184, 184, 184);
