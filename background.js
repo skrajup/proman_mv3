@@ -213,7 +213,7 @@ const breakoptions = {
     type: 'image',
     title: breakTitle,
     message: breakMsg,
-    iconUrl: '/images/time-to-market128.png',
+    iconUrl: '/images/logo1.png',
     imageUrl: '/images/notimage.jpeg',
     requireInteraction: true
   };
@@ -289,7 +289,7 @@ setInterval(()=>{
                         type: 'image',
                         title: i['title'] + ' task reminder',
                         message: todoMsg,
-                        iconUrl: '/images/time-to-market128.png',
+                        iconUrl: '/images/logo1.png',
                         imageUrl: '/images/todo.png',
                         requireInteraction: true
                     };
