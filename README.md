@@ -37,7 +37,7 @@ Basically this is a chrome extension development project. The main purpose of th
 
 ## Wanna test it out ?
 1. download zip and extract
-2. goto [extensions](chrome://extensions)
+2. goto `chrome://extensions`
 3. enable developer mode in top right corner
 4. load unpacked the extracted root folder of extension
 5. Hurrah !!! You can see the popup icon somewhere around top of the browser
