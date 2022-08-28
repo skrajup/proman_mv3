@@ -99,7 +99,7 @@ addForm.addEventListener('submit',e =>{
                 console.log(err);
             });
         //appendTodoHtml(todo_title,start.toLocaleString(),end.toLocaleString(),status);
-        addForm.reset();
+        // addForm.reset();
     }else{
         alert('invalid date & time');
     }

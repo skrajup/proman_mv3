@@ -8,8 +8,8 @@ const durKey = "dur";
 const flagKey = "flags";
 const todosKey = "todos";
 const alarmsKey = "alarms";
-const settingsKey = "settings";
-const bookmarksKey = "bookmarks";
+// const settingsKey = "settings";
+// const bookmarksKey = "bookmarks";
 const available_ids = "available_ids";
 const max__rule__id = "max__rule__id";
 const rules = "rules";
@@ -32,10 +32,10 @@ chrome.management.getSelf()
                 console.log('extension installed');
                 chrome.storage.sync.set({ 
                     [flagKey]: {'block': 1, rule__id: 0, 'surfTime': false } ,
-                    [bookmarksKey]: { } ,
+                    // [bookmarksKey]: { } ,
                     [alarmsKey]: { } ,
                     [durKey]: {  } ,
-                    [settingsKey]: { 'alarmAlert': false, 'breakAlert': false, 'todoAlert': false } ,
+                    // [settingsKey]: { 'alarmAlert': false, 'breakAlert': false, 'todoAlert': false } ,
                     [todosKey]: [ ],
                     [available_ids]: [ ],
                     [max__rule__id]: 0,
@@ -97,32 +97,60 @@ chrome.storage.onChanged.addListener((changes, area)=>{
     }
 });
 
-// unblock_browser
-chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
-    if(request.query === "unblock_browser"){
-        chrome.declarativeNetRequest.updateDynamicRules({
-            addRules: [
-                {
-                    "id": 4000,
-                    "priority": 1,
-                    "action": { "type": "allowAllRequests" },
-                    "condition": {
-                        "urlFilter": "*://*/*",
-                        "resourceTypes": [
-                            'main_frame', 'sub_frame'
-                        ]
-                    }
+// block_browser handeler
+function block__browser() {  
+    chrome.declarativeNetRequest.updateDynamicRules({
+        addRules: [
+            {
+                "id": 4000,
+                "priority": 1,
+                "action": { "type": "block" },
+                "condition": {
+                    "urlFilter": "*://*/*",
+                    "resourceTypes": [
+                        'main_frame', 'sub_frame'
+                    ]
                 }
-            ],
+            }
+        ],
+        removeRuleIds: [4000]
+    }).then(()=>{
+        console.log("unblock the browser from popup.");
+    }).catch(err=>{
+        console.log(err);
+    }); 
+}
+
+// unblock_browser handeler
+function unblock__browser() {  
+    chrome.declarativeNetRequest.updateDynamicRules({
+        addRules: [
+            {
+                "id": 4000,
+                "priority": 1,
+                "action": { "type": "allowAllRequests" },
+                "condition": {
+                    "urlFilter": "*://*/*",
+                    "resourceTypes": [
+                        'main_frame', 'sub_frame'
+                    ]
+                }
+            }
+        ],
+        removeRuleIds: [4000]
+    }).then(()=>{
+        chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: [4000]
-        }).then(()=>{
-            chrome.declarativeNetRequest.updateDynamicRules({
-                removeRuleIds: [4000]
-            });
-        }).catch(err=>{
-            console.log(err);
-        });         
-    }
+        });
+    }).catch(err=>{
+        console.log(err);
+    }); 
+}
+
+// block_browser && unblock_browser
+chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
+    if(request.query === "block_browser")   block__browser();
+    else if(request.query === "unblock_browser")    unblock__browser();      
 });
 
 //alarm management =========================================================

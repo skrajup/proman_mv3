@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const optionsButtons = document.querySelectorAll('.go-to-options');
 const features_btn = document.querySelector('.feature-btn');
 const features_container = document.querySelector('.display-features');
+const block_browser = document.querySelector('.block_browser');
 const unblock_browser = document.querySelector('.unblock_browser');
 
 // features_btn.addEventListener('click', ()=>{
@@ -26,6 +27,10 @@ optionsButtons.forEach(btn => {
   });
 });
 
+// block_browser 
+block_browser.addEventListener("click", e=>{
+  chrome.runtime.sendMessage({query: "block_browser"});
+});
 // unblock_browser
 unblock_browser.addEventListener("click", e=>{
   chrome.runtime.sendMessage({query: "unblock_browser"});
@@ -166,7 +171,7 @@ alarmForm.addEventListener('submit',(e)=>{
                       'period': period,
                       'purpose': 'set'
                     }, function (response) { 
-                        alarmForm.reset();
+                        // alarmForm.reset();
                       if(!isNaN(period)){
                         const template = `<p class="alarm-item"><i class="far fa-bell"></i> <b>[${alarmName}] </b><i class="fa-light fa-right-long"></i> ${localeString} <br> <b class="period">Period: ${period} min</b> <button class="remove">remove</button></p>`;
                         alarmTime.innerHTML += template;

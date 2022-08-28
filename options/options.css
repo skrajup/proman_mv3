@@ -128,7 +128,8 @@ input:hover,input:focus {
 #gen-block-list li,
 #pattern-block-list li{
     word-break:break-all;
-    border: 0.2px solid #ffbbbb;
+    border: 2px solid #000000;
+    border-radius: 0;
 }
 .filtered{
     display: none !important;
