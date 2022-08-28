@@ -18,13 +18,13 @@
 ## Demo 
 **[link](https://bit.ly/3wA4Hqe)**
 
-**or scan**
-![barcode](https://github.com/ntstet/proman_mv3/blob/master/images/barcode.png?raw=true)
+![barcode](https://user-images.githubusercontent.com/95043790/187069149-2d0ac283-9543-4d6e-a3b8-b54d5ac0ed14.png)
+
 
 ## Project description
 **Project problem statement can be found [here](https://www.dropbox.com/scl/fi/fij88g0at3h65pp51lia8/Productivity-Management.docx?dl=0&rlkey=nqbgm2t1r7fm26fvftmt6xaon)**
-**Project name:** PROMAN extension
 
+**Project name:** PROMAN extension
 Basically this is a chrome extension development project. The main purpose of the this chrome extension is to increase the productivity of the user.
 
 ### Mandatory features included in the project
