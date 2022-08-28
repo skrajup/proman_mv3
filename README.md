@@ -13,13 +13,6 @@
    - **Roll no.-** 190123047
    - **Deptt.-** Mathematics and Computing (3rd year)
    - **Web mail-** [p.parmar@iitg.ac.in](mailto:p.parmar@iitg.ac.in)
- 
-
-## Demo 
-**[link](https://bit.ly/3wA4Hqe)**
-
-![barcode](https://github.com/ntstet/proman_mv3/blob/master/images/barcode.png/)
-
 
 ## Project description
 **Project problem statement can be found [here](https://www.dropbox.com/scl/fi/fij88g0at3h65pp51lia8/Productivity-Management.docx?dl=0&rlkey=nqbgm2t1r7fm26fvftmt6xaon)**
