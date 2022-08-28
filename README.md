@@ -34,6 +34,14 @@ Basically this is a chrome extension development project. The main purpose of th
 <img width="536" alt="image" src="https://user-images.githubusercontent.com/95043790/186961252-4796b96f-e923-4d49-ad49-6400a535677e.png">
  <img width="350" alt="image" src="https://user-images.githubusercontent.com/95043790/186961067-9ba4d6f9-b624-4ba7-9905-411aca44a28f.png">
 
+
+## Wanna test it out ?
+1. download zip and extract
+2. goto [extensions](chrome://extensions)
+3. enable developer mode in top right corner
+4. load unpacked the extracted root folder of extension
+5. Hurrah !!! You can see the popup icon somewhere around top of the browser
+
 #### Thanks 
 
 
