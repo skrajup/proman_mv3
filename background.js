@@ -125,67 +125,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
     }
 });
 
-// /*
-// do not block options page and custom block page
-// const optionsPageUrl = 'chrome-extension://gadcdahkboipobjjcdcgimieefddomca/options/options.html';
-// const newTabUrl = 'chrome-extension://gadcdahkboipobjjcdcgimieefddomca/newTab/newTab.html';
-// const popupUrl = 'chrome-extension://gadcdahkboipobjjcdcgimieefddomca/popup/popup.html';
-// */
-// // struggling with asynchronous nature of the chrome.storage.sync 's callback, 
-// // related question is published on stackoverflow
-
-//     function blockListener(details) {  
-//         if(details.url.search(extensionId) > -1){
-//             return {
-//                 cancel: false
-//             };
-//         }else{
-//             var sites = JSON.parse(localStorage.getItem(sitesToBeBlockedKey));//got sites array
-//             var host = getLocation(details.url).host;
-//             if(sites && sites.includes(host)){
-//                 return {
-//                     cancel: true
-//                 };
-//             }else{
-//                 return {
-//                     cancel: false
-//                 };
-//             }
-//         }
-//     }
-// /*
-// in above function blockListener i have struggeled with the blocking of the requests which were not in main_frame,,
-// no matter in which frame they are.. i was blocking only main_frame requests because of which some requests which were in script, ping, image type frame are not blocked and i was not able to figure out for 2 days then after lot of debugging i have found the issue and then removed the types of frame i.e. main_frame form the webRequest and after then i am anle to block the user want , no matter the request in which frame.
-// */
-    
-//     function checkBlockRequest(){
-//         chrome.storage.sync.get(null,items=>{
-//             var flagsObj = items[flagKey];
-           
-//             if(flagsObj["block"] === 1){
-//                 return;
-//             }
-//             if(flagsObj["block"] === 2){
-//                 chrome.webRequest.onBeforeRequest.addListener( blockListener, { urls: ["<all_urls>"] }, ['blocking'] );
-//                 flagsObj["block"] = 1;
-//                 chrome.storage.sync.set({[flagKey]: flagsObj});
-//             }else if(flagsObj["block"] === 3){
-//                 chrome.webRequest.onBeforeRequest.removeListener( blockListener );
-//                 flagsObj["block"] = 2;
-//                 chrome.storage.sync.set({[flagKey]: flagsObj});
-//                 //again onChanged event is fired and remaining sites will again blocked
-//             }
-//         });
-//     }
-
-//     chrome.storage.onChanged.addListener((changes, area)=>{
-//         if( area == 'sync' && changes.flags?.newValue ){
-//             checkBlockRequest();
-//         }
-//     });
-//     checkBlockRequest();
-
-
 //alarm management =========================================================
 // chrome.alarms api
 chrome.runtime.onMessage.addListener(function (request,sender,sendResponse) { 
