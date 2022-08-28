@@ -19,7 +19,7 @@ var extensionId = "";
 //get extension id
 chrome.management.getSelf()
     .then(extensionInfo => {
-        console.log(extensionInfo);
+        // console.log(extensionInfo);
         if(extensionInfo.name === "PROMAN extension"){
             extensionId = extensionInfo.id;
         }
@@ -51,7 +51,7 @@ function block_request(changes) {
     const block = changes["flags"]["newValue"].block;
     const newRuleId = changes["flags"]["newValue"].rule__id;
     if(block === 2){
-        console.log("blocking");
+        // console.log("blocking");
         // block the request recently inserted in rules array 
         const newUrlFilter = changes["rules"]["newValue"].slice(-1)[0].urlFilter;
         chrome.declarativeNetRequest.updateDynamicRules({
@@ -69,18 +69,18 @@ function block_request(changes) {
                 }
             }]
         }).then(()=>{
-            console.log("blocked");
+            // console.log("blocked");
         }).catch(err=>{
             console.log(err);
         });
     }else if(block === 3){
-        console.log("unblocking");
+        // console.log("unblocking");
         // unblock the request with given id(changes[flags].rule_id)
         chrome.declarativeNetRequest.updateDynamicRules({
             // options
             removeRuleIds: [newRuleId]
         }).then(()=>{
-            console.log("unblocked");
+            // console.log("unblocked");
         }).catch(err=>{
             console.log(err);
         });
@@ -92,7 +92,7 @@ function block_request(changes) {
 
 chrome.storage.onChanged.addListener((changes, area)=>{
     if( area == 'sync' && changes.rules?.newValue ){
-        console.log(changes["flags"]);
+        // console.log(changes["flags"]);
         block_request(changes);
     }
 });
@@ -237,7 +237,8 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
                     .then(()=>{
                         chrome.runtime.sendMessage({'name': alarm.name, 'purpose': 'removeOneTime'});
                     }).catch(err => {
-                        console.log("one time alarm removed from storage.");
+                        // console.log("one time alarm removed from storage.");
+                        console.log(err);
                     });
             }
         }).catch(err => {
@@ -313,7 +314,7 @@ setInterval(()=>{
         }).then(()=>{
             chrome.runtime.sendMessage({'purpose': 'breakover'})
             .then(response => {
-                console.log(response);
+                // console.log(response);
             }).catch(err => {
                 console.log(err);
             });
@@ -398,10 +399,10 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         
 //     })
 
-chrome.declarativeNetRequest.getDynamicRules()
-.then(rules=>{
-    console.log(rules);
-})
+// chrome.declarativeNetRequest.getDynamicRules()
+// .then(rules=>{
+//     console.log(rules);
+// })
 
 function getLocation(href) {  
     var loc = document.createElement('a');

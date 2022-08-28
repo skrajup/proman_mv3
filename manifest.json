@@ -1,6 +1,6 @@
 {
   "name": "PROMAN extension",
-  "description": "Set timer for your task, blacklist browser/urls during break, Set alarm and make Todos for your tasks, overall resulting in your productivity....",
+  "description": "Set timer for your task, blacklist browser/urls during break, Set alarm and make Todos for your tasks, overall enhance your productivity....",
   "version": "0.0.1",
   "manifest_version": 3,
 
@@ -12,26 +12,16 @@
     {
       "matches": ["https://*/*","http://*/*"] ,
       "css": ["/css/all.min.css"],
-      "js": ["/scripts/content/jquery-3.6.0.js","/scripts/content/content-script.js"]
+      "js": ["/scripts/content/jquery-3.6.0.js"]
     }
   ],
-
-  "declarative_net_request": {
-    "rule_resources": [
-    ]
-  },
 
   "permissions": [
       "storage",
       "unlimitedStorage",
-      "tabs",
       "notifications",
       "alarms", 
-      "activeTab",
       "declarativeNetRequest"
-  ],
-
-  "optional_permissions" : [
   ],
 
   "optional_host_permissions" : [
@@ -41,26 +31,26 @@
   "action": {
     "default_popup": "/popup/popup.html",
     "default_icon": {
-      "16": "/images/time-to-market16.png",
-      "24": "/images/time-to-market24.png",
-      "32": "/images/time-to-market32.png",
-      "64": "/images/time-to-market64.png",
-      "128": "/images/time-to-market128.png"
+      "16": "/images/logo5.png",
+      "24": "/images/logo4.png",
+      "32": "/images/logo3.png",
+      "64": "/images/logo2.png",
+      "128": "/images/logo1.png"
     }
   },
 
   "icons": {
-    "16": "/images/time-to-market16.png",
-    "24": "/images/time-to-market24.png",
-    "32": "/images/time-to-market32.png",
-    "64": "/images/time-to-market64.png",
-    "128": "/images/time-to-market128.png"
+    "16": "/images/logo5.png",
+    "24": "/images/logo4.png",
+    "32": "/images/logo3.png",
+    "64": "/images/logo2.png",
+    "128": "/images/logo1.png"
   },
 
   //embedded options page
   "options_ui": {
       "page": "/options/options.html"
-   },
+    },
 
   "web_accessible_resources": [{
       "resources": [

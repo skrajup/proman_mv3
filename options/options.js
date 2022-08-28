@@ -47,7 +47,7 @@ loadtodos();//load all todos at once============================================
 
 //load blockedsites function============================================================
 function loadsites() {  
-    console.log("sites loaded");
+    // console.log("sites loaded");
     genBlockList.innerHTML = ``;
     // var sites = JSON.parse(localStorage.getItem(blockedSiteskey));
     chrome.storage.sync.get("rules")
@@ -260,7 +260,7 @@ genBlockList.addEventListener('click',e => {
         //just hit trial to get the end of link icon
         const rule__id = parseInt(e.target.parentElement.children[0].innerText.trim());
         // remove from page
-        console.log(e.target.parentElement);
+        // console.log(e.target.parentElement);
         // update storage and set info to let bg.js to unblock the request
         chrome.storage.sync.get(["available_ids", "rules"])
             .then(items=>{
