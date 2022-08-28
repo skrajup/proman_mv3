@@ -18,7 +18,7 @@
 ## Demo 
 **[link](https://bit.ly/3wA4Hqe)**
 
-![barcode](https://user-images.githubusercontent.com/95043790/187069149-2d0ac283-9543-4d6e-a3b8-b54d5ac0ed14.png)
+![barcode](https://github.com/ntstet/proman_mv3/blob/master/images/barcode.png/)
 
 
 ## Project description
