@@ -19,7 +19,7 @@
 **[link](https://bit.ly/3wA4Hqe)**
 
 **or scan**
-![barcode](https://github.com/ntstet/proman_mv3/blob/master/barcode.png?raw=true)
+![barcode](https://github.com/ntstet/proman_mv3/blob/master/images/barcode.png?raw=true)
 
 ## Project description
 **Project problem statement can be found [here](https://www.dropbox.com/scl/fi/fij88g0at3h65pp51lia8/Productivity-Management.docx?dl=0&rlkey=nqbgm2t1r7fm26fvftmt6xaon)**
