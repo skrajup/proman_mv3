@@ -6,49 +6,28 @@
     <link rel="stylesheet" href="popup.css">
   </head>
   <body class="border-gradient border-gradient-purple">
-    <h1 class="welcome">PROMAN Extension</h1>
-    <p id="elapsedTime" class="heading">00 : 00 : 00</p>
-      <!-- <button class="feature-btn"><i class="fas fa-tools"></i></button>
-      <ul class="features-list display-features">
-        <li>Set your work duration and take break after some time.</li>
-        <li>Set alarms at specified date & time and get notified at the scheduled time.</li>
-        <li>Blacklist disturbing sites or site patterns and focus on important.</li>
-        <li>Make todos list for a scheduled start and end time and get notified when scheduled time is reached.</li>
-        <li> <i class="note">Note: all sites will be blocked as break time reached.</i></li>
-      </ul> -->
+    <div class="header-flex">
+      <div class="welcome"> <img src="/images/logo5.png" style="width: 20px; padding: 1px; border-radius: 50%; border: 0.1px solid #ccc;" alt="proman-logo"> <b>PROMAN</b> </div>
+      <div class="now time"><span>00</span> <span>00</span> <span>00</span></div>
+      <div id="elapsedTime" class="heading time">
+        <span>00</span> <span>00</span> <span>00</span>
+      </div>
+    </div>
 
-    <button class="btn go-to-options">blacklist</button>
-    <button class="btn go-to-options">todos</button>
-    <button class="btn go-to-options">options</button>
-    <button class="btn bg-danger block_browser">block the browser</button> <br> <br>
-    <button class="btn unblock_browser">unblock the browser</button>
-
-    <!-- settings for sound-->
-    <!-- <h3 class="heading"><i class="fas fa-cogs feature-btn"></i> Alerts </h3>
-    <span class="setting_title">Break: </span>
-    <label class="switch">
-      <input type="checkbox" id="break-alert">
-      <span class="slider"></span>
-    </label>
- 
-    <span class="setting_title">Alarm: </span>
-    <label class="switch">
-      <input type="checkbox" id="alarm-alert">
-      <span class="slider"></span>
-    </label>
+    <div class="menu-btns">
+      <div><button class="my-btn go-to-options">todos</button></div>
+      <div><button class="my-btn go-to-options">options</button></div>
+      <div><button class="my-btn block_browser">block browser</button></div>
+      <div><button class="my-btn unblock_browser">unblock browser</button></div>
+    </div>
   
-    <span class="setting_title">Todo: </span>
-    <label class="switch">
-      <input type="checkbox" id="todo-alert">
-      <span class="slider"></span>
-    </label> -->
-
     <hr class="horiline">
-    <h3 class="heading"><i class="fas fa-street-view feature-btn"></i> Take some break</h3>
-    <form action="" class="break-form" id="bdf">
-      <input type="number" name="duration" id="duration" min="1" placeholder="After 1 minute from now">
 
-      <input class="btn" type="submit" name="setBreak" id="setBreak" value="set">
+    <h6 class="heading"><i class="fas fa-street-view feature-btn"></i> Take some break</h6>
+    
+    <form action="" class="break-form" id="bdf">
+      <input type="number" name="duration" id="duration" min="1" placeholder="After >= 1 minute from now">
+      <input class="my-btn" type="submit" name="setBreak" id="setBreak" value="set">
     </form>
 
     <div class="break-time">
@@ -56,18 +35,35 @@
 
     <hr class="horiline">
     <!-- alarm -->
-    <h3 class="heading"><i class="far fa-clock feature-btn"></i> Set an alarm</h3>
+    <h6 class="heading"><i class="far fa-clock feature-btn"></i> Set an alarm</h6>
     <form action="" class="alarm-form">
-      <input type="text" name="name" id="name" placeholder="alarm name">
+      <input type="text" name="name" id="name" placeholder="alarm name" maxlength="20">
       <input type="datetime-local" name="scheduledTime" id="scheduledTime">
       <input type="number" min="1" name="period" id="period" placeholder="repeat after (put in minutes)">
-   
-      <input class="btn" type="submit" name="set" id="set" value="set">
-      <input class="btn" type="reset" name="reseet" id="reseet" value="reset">
+      <input class="my-btn" type="submit" name="set" id="set" value="set">
+      <input class="my-btn" type="reset" name="reseet" id="reseet" value="reset">
     </form>
     <br>
-    <div class="alarm-time">
+
+    <div class="alarms-list alarm-time">
+      <table class="alarms-table">
+        <thead>
+          <tr>
+            <th>serial</th>
+            <th>alarm name</th>
+            <th>time</th>
+            <th>snooze period</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        
+        <tbody class="alarms-table-body">
+          
+        </tbody>
+      </table>
     </div>
+
+    <div class="maker" style="text-align: center; margin: 10px;">Made with <span style="color: red;">&#10084;</span> by <a href="https://github.com/skrajup" target="_blank">Saurabh Rajput</a>.</div>
     <script src="popup.js"></script>
   </body>
 </html>

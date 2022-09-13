@@ -1,0 +1,7 @@
+background pages are updated to service workers.
+service workers donot run continuosly, so no longer we can get the elapsed
+timer using setInterval.
+
+fix: service workers will run when any even occurs, so what we do?
+fire event at every second, how ? create alarm for each second and then
+at each second we can get the time elapsed, from service worker.
