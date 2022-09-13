@@ -1,3 +1,5 @@
+https://www.freeprivacypolicy.com/live/b560d641-0dd5-47a8-9eff-b16650184678
+
 background pages are updated to service workers.
 service workers donot run continuosly, so no longer we can get the elapsed
 timer using setInterval.
