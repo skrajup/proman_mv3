@@ -43,9 +43,9 @@ chrome.management.getSelf()
                 [rules]: [ ],
                 [feedbacks]: [ ]
             }).then(()=>{
-                console.log("keys are set");
+                // console.log("keys are set");
             }).catch(err=>{
-                console.log("keys set error: ", err);
+                // console.log("keys set error: ", err);
             });
 
             chrome.storage.local.set({
@@ -54,7 +54,7 @@ chrome.management.getSelf()
             });
         }else if(details.reason === "update"){
             chrome.declarativeNetRequest.getDynamicRules().then(rules=>{
-                console.log(rules);
+                // console.log(rules);
                 // for(var i=0; i<rules.length; i++){
                 //     chrome.declarativeNetRequest.updateDynamicRules({
                 //         removeRuleIds: [rules[i].id]
@@ -108,7 +108,7 @@ function block_request(changes) {
             console.log(err);
         });
     }else{
-        console.log("either no rules to block or any error occurred in blocking!!!");
+        // console.log("either no rules to block or any error occurred in blocking!!!");
         return;
     }
 }
@@ -217,7 +217,7 @@ const breakoptions = {
 
 var target_for_break = -1;
 var startDate = new Date();
-console.log(startDate);
+// console.log(startDate);
 // onAlarm event ------------------------------------------------------------------------------
 chrome.alarms.onAlarm.addListener(function (alarm) { 
     var time;
@@ -228,7 +228,7 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
         });
 
         if(alarm.name === "timer"){
-            console.log(alarm.name);
+            // console.log(alarm.name);
             chrome.action.setBadgeText({text: time + "s"});
     
             // break time management===============================
@@ -263,10 +263,10 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
                     }],
                     removeRuleIds: [4000]
                 }).then(()=>{
-                    console.log("break start");
+                    // console.log("break start");
                     chrome.runtime.sendMessage({'purpose': 'breakover'})
                     .then(response => {
-                         console.log(response);
+                        //  console.log(response);
                     }).catch(err => {
                         console.log(err);
                     });
@@ -371,7 +371,7 @@ chrome.runtime.onMessage.addListener(function (request,sender,sendResponse) {
             if(wasCleared === true){
                 sendResponse({'status': request.name+' alarm is successfully removed'});
             }else{
-                console.log("requested alarm is not cleared");
+                // console.log("requested alarm is not cleared");
             }
         }).catch(err => {
             console.log(err);

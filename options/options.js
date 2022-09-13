@@ -283,7 +283,7 @@ genBlockList.addEventListener('click',e => {
                                     console.log(err);
                                 });
                         }else{
-                            console.log("rule__id does not match");
+                            // console.log("rule__id does not match");
                         }
                     }
                 }
