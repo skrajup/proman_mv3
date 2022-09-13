@@ -361,7 +361,7 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
 });
 
 // clean up the whole data, if user uninstalls the extension
-const uninstUrl = "#";
+const uninstUrl = "https://skrajup.github.io/proman_mv3/uninstallation/uninst.html";
 chrome.runtime.setUninstallURL(uninstUrl)// url must be http(s) qualified
     .then(()=>{
         console.log("uninstalled!!!");
