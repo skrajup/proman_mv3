@@ -13,39 +13,45 @@ const alarmsKey = "alarms";
 const available_ids = "available_ids";
 const max__rule__id = "max__rule__id";
 const rules = "rules";
+const feedbacks = "feedbacks";
 
 // const notesKey = "notes";
 var extensionId = "";
 //get extension id
 chrome.management.getSelf()
-    .then(extensionInfo => {
-        // console.log(extensionInfo);
-        if(extensionInfo.name === "PROMAN extension"){
-            extensionId = extensionInfo.id;
-        }
+.then(extensionInfo => {
+    // console.log(extensionInfo);
+    if(extensionInfo.name === "PROMAN extension"){
+        extensionId = extensionInfo.id;
+    }
 
-        //1: do nothing
-        //2: block
-        //3: unblock
-        chrome.runtime.onInstalled.addListener((details)=>{
-            if(details.reason == 'install'){
-                console.log('extension installed');
-                chrome.storage.sync.set({ 
-                    [flagKey]: {'block': 1, rule__id: 0, 'surfTime': false } ,
-                    // [bookmarksKey]: { } ,
-                    [alarmsKey]: { } ,
-                    [durKey]: {  } ,
-                    // [settingsKey]: { 'alarmAlert': false, 'breakAlert': false, 'todoAlert': false } ,
-                    [todosKey]: [ ],
-                    [available_ids]: [ ],
-                    [max__rule__id]: 0,
-                    [rules]: [ ],
-                });
-            }
-        });
-    }).catch(err => {
-        console.log(err);
+    //1: do nothing
+    //2: block
+    //3: unblock
+    chrome.runtime.onInstalled.addListener((details)=>{
+        if(details.reason == 'install'){
+            console.log('extension installed');
+            chrome.storage.sync.set({ 
+                [flagKey]: {'block': 1, rule__id: 0, 'surfTime': false } ,
+                // [bookmarksKey]: { } ,
+                [alarmsKey]: { } ,
+                [durKey]: {  } ,
+                // [settingsKey]: { 'alarmAlert': false, 'breakAlert': false, 'todoAlert': false } ,
+                [todosKey]: [ ],
+                [available_ids]: [ ],
+                [max__rule__id]: 0,
+                [rules]: [ ],
+                [feedbacks]: [ ]
+            }).then(()=>{
+                console.log("keys are set");
+            }).catch(err=>{
+                console.log("keys set error: ", err);
+            });
+        }
     });
+}).catch(err => {
+    console.log(err);
+});
 
 function block_request(changes) {  
     const block = changes["flags"]["newValue"].block;
@@ -85,7 +91,7 @@ function block_request(changes) {
             console.log(err);
         });
     }else{
-        console.log("error occurred in blocking");
+        console.log("either no rules to block or any error occurred in blocking!!!");
         return;
     }
 }
@@ -244,7 +250,7 @@ const breakoptions = {
     iconUrl: '/images/logo1.png',
     imageUrl: '/images/notimage.jpeg',
     requireInteraction: true
-  };
+};
 //notification details end=====================
 
 // Audio is not supported in MV3
@@ -355,21 +361,13 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
 });
 
 // clean up the whole data, if user uninstalls the extension
-// chrome.runtime.setUninstallURL("")
-//     .then(()=>{
-//         chrome.storage.sync.get("max__rule__id")
-//             .then(items=>{
-//                 chrome.declarativeNetRequest.updateDynamicRules(
-                    
-//                 )
-//             })
-        
-//     })
-
-// chrome.declarativeNetRequest.getDynamicRules()
-// .then(rules=>{
-//     console.log(rules);
-// })
+const uninstUrl = "#";
+chrome.runtime.setUninstallURL(uninstUrl)// url must be http(s) qualified
+    .then(()=>{
+        console.log("uninstalled!!!");
+    }).catch(err=>{
+        console.log(err);
+    });
 
 function getLocation(href) {  
     var loc = document.createElement('a');

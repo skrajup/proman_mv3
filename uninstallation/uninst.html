@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proman</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mulish&family=Nanum+Gothic&display=swap');
+
+        body{
+            height: 500px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Mulish', sans-serif;
+            /* font-family: 'Nanum Gothic', sans-serif; */
+        }
+
+        .wrapper {
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quote, .feedback {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        form {
+            width: 80%;
+        }
+
+        form > textarea {
+            width: 100%;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 0;
+            background: rgb(230, 229, 229);
+            outline: none;
+            font-size: x-large;
+        }
+
+        form > button {
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            background: blueviolet;
+            color: antiquewhite;
+            cursor: pointer;
+            font-size: x-large;
+        }
+        form > button:hover {
+            background: antiquewhite;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="quote">
+            <h1>Please let us know the reason for uninstalling the extension.</h1>
+        </div>
+        <div class="feedback">
+            <form action="" method="post">
+                <textarea name="feedback" id="feedback" cols="30" rows="10" placeholder="feedback"></textarea>
+                <button type="submit">send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="uninst.js"></script>
+</body>
+</html>
