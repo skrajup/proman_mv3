@@ -235,7 +235,7 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
 
         if(alarm.name === "timer"){
             // console.log(alarm.name);
-            chrome.action.setBadgeText({text: time + "s"});
+            chrome.action.setBadgeText({text: Math.round(time*100.0/60)/100+""});
     
             // break time management===============================
             // block all urls if break is over===================
