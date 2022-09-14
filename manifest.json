@@ -1,6 +1,6 @@
 {
   "name": "PROMAN extension",
-  "description": "Set timer for your task, blacklist browser/urls during break, Set alarm and make Todos for your tasks, overall enhance your productivity....",
+  "description": "Set timer, blacklist browser/urls, alarm and make Todos for your tasks and be a PROMAN.",
   "version": "0.0.1",
   "manifest_version": 3,
 
@@ -18,14 +18,9 @@
 
   "permissions": [
       "storage",
-      "unlimitedStorage",
       "notifications",
       "alarms", 
       "declarativeNetRequest"
-  ],
-
-  "optional_host_permissions" : [
-      "*://*/*"
   ],
 
   "action": {
@@ -47,9 +42,9 @@
     "128": "/images/logo1.png"
   },
 
-  //embedded options page
   "options_ui": {
-      "page": "/options/options.html"
+      "page": "/options/options.html",
+      "open_in_tab": false
     },
 
   "web_accessible_resources": [{
@@ -61,7 +56,7 @@
           "webfonts/*"
       ],
       "matches": [
-
+        "<all_urls>"
       ]
   }]
 }

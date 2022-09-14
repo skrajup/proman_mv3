@@ -197,7 +197,8 @@ alarmTableBody.addEventListener('click',(e)=>{
     const alarmToRemove = e.target.parentElement.parentElement.children[1].textContent.trim();// [name]
     // console.log();
     // send a msg to bg script to remove the alarm
-    chrome.runtime.sendMessage({'name': alarmToRemove,'purpose': 'remove'},function(){
+    chrome.runtime.sendMessage({'name': alarmToRemove,'purpose': 'remove'},function(response){
+      // console.log(response);
       // remove from the object value of "alarms" key
       chrome.storage.sync.get('alarms')
         .then(items=>{
@@ -218,6 +219,7 @@ alarmTableBody.addEventListener('click',(e)=>{
     });
   }
 });
+
 // listen message coming from bg script to remove the alarm having no 'periodInMinutes'
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {  
   if(request.purpose == 'removeOneTime'){

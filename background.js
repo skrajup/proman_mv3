@@ -53,25 +53,33 @@ chrome.management.getSelf()
                 "target_for_break": -1
             });
         }else if(details.reason === "update"){
-            chrome.declarativeNetRequest.getDynamicRules().then(rules=>{
-                // console.log(rules);
-                // for(var i=0; i<rules.length; i++){
-                //     chrome.declarativeNetRequest.updateDynamicRules({
-                //         removeRuleIds: [rules[i].id]
-                //     });
-                // }
-            });
+            console.log("update");
+            // chrome.declarativeNetRequest.getDynamicRules().then(rules=>{
+            //     // console.log(rules);
+            //     // for(var i=0; i<rules.length; i++){
+            //     //     chrome.declarativeNetRequest.updateDynamicRules({
+            //     //         removeRuleIds: [rules[i].id]
+            //     //     });
+            //     // }
+            // });
+        }else{
+            // console.log("anything");
         }
     });
 }).catch(err => {
     console.log(err);
 });
 
-chrome.storage.local.set({
-    "time": 0,
-    "target_for_break": -1
+// startup clear the time and target_for_break
+chrome.runtime.onStartup.addListener(()=>{
+    console.log("startup");
+    chrome.storage.local.set({
+        "time": 0,
+        "target_for_break": -1
+    });
 });
 
+// handeler for handeling block request for an url
 function block_request(changes) {  
     const block = changes["flags"]["newValue"].block;
     const newRuleId = changes["flags"]["newValue"].rule__id;
@@ -216,12 +224,10 @@ const breakoptions = {
 //  notification details end=====================
 
 var target_for_break = -1;
-var startDate = new Date();
-// console.log(startDate);
 // onAlarm event ------------------------------------------------------------------------------
 chrome.alarms.onAlarm.addListener(function (alarm) { 
     var time;
-    chrome.storage.local.get("time").then(items=>{
+    chrome.storage.local.get(["time", "target_for_break"]).then(items=>{
         time = items["time"] + 1;
         chrome.storage.local.set({
             "time": time
@@ -238,12 +244,14 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
                     //  var curr = elapsedTime;// seconds
                     var dur = request.duration;// seconds
                     target_for_break = time + dur;
+                    chrome.storage.local.set({"target_for_break": target_for_break});
                 }
             });
     
             var check = 0;
-            if(target_for_break == time){
+            if(items["target_for_break"] == time){
                 target_for_break = -1;
+                chrome.storage.local.set({"target_for_break": target_for_break});
                 check = 1;
         
                 // console.log('breakover======================');
@@ -377,6 +385,9 @@ chrome.runtime.onMessage.addListener(function (request,sender,sendResponse) {
             console.log(err);
         });
     }
+    // https://www.edureka.co/community/65627/unchecked-runtime-lasterror-message-response-received-chrome\
+    // issue :: Unchecked runtime.lastError: The message port closed before a response was received.
+    return true;    // fixed the error :: read post for more
 });
 
 
