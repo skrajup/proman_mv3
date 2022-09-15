@@ -14,6 +14,7 @@ const available_ids = "available_ids";
 const max__rule__id = "max__rule__id";
 const rules = "rules";
 const feedbacks = "feedbacks";
+const time_history = "time_history";
 
 //  const notesKey = "notes";
 var extensionId = "";
@@ -41,7 +42,8 @@ chrome.management.getSelf()
                 [available_ids]: [ ],
                 [max__rule__id]: 0,
                 [rules]: [ ],
-                [feedbacks]: [ ]
+                [feedbacks]: [ ],
+                [time_history]: {"days": 0, "hours": 0, "minutes": 0, "seconds": 0}
             }).then(()=>{
                 // console.log("keys are set");
             }).catch(err=>{
@@ -70,12 +72,17 @@ chrome.management.getSelf()
     console.log(err);
 });
 
-// startup clear the time and target_for_break
+// on startup 
+// store the total time browsed so far
+// clear the timer and target_for_break
 chrome.runtime.onStartup.addListener(()=>{
     console.log("startup");
-    chrome.storage.local.set({
-        "time": 0,
-        "target_for_break": -1
+    chrome.storage.local.get("time", (items)=>{
+        var time = items["time"];
+        chrome.storage.local.set({
+            "time": 0,
+            "target_for_break": -1
+        });
     });
 });
 
@@ -231,6 +238,33 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
         time = items["time"] + 1;
         chrome.storage.local.set({
             "time": time
+        }).then(()=>{
+            chrome.storage.sync.get([time_history], (items)=>{
+                var prev_seconds = items[time_history]["seconds"];
+                var prev_minutes = items[time_history]["minutes"];
+                var prev_hours =  items[time_history]["hours"];
+                var prev_days = items[time_history]["days"];
+
+                var total_seconds = prev_seconds + 1;
+                var total_minutes = (prev_minutes + Math.floor(total_seconds/60));
+                total_seconds = total_seconds%60;
+
+                var total_hours = (prev_hours + Math.floor(total_minutes/60));
+                total_minutes = total_minutes%60;
+
+                var total_days = (prev_days + Math.floor(total_hours/24));
+                total_hours = total_hours%24;
+                
+                const total_time = {
+                    "days": Math.floor(total_days),
+                    "hours": Math.floor(total_hours),
+                    "minutes": Math.floor(total_minutes),
+                    "seconds": Math.floor(total_seconds)
+                };
+                chrome.storage.sync.set({[time_history]: total_time});
+            });
+        }).catch(err=>{
+            console.log(err);
         });
 
         if(alarm.name === "timer"){

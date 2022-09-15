@@ -12,7 +12,7 @@
     {
       "matches": ["https://*/*","http://*/*"] ,
       "css": ["/css/all.min.css"],
-      "js": ["/scripts/content/jquery-3.6.0.js"]
+      "js": ["/scripts/content/jquery-3.6.0.js", "/scripts/content/content.js"]
     }
   ],
 
