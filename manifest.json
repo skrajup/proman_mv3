@@ -1,7 +1,7 @@
 {
   "name": "PROMAN extension",
   "description": "Set timer, blacklist browser/urls, alarm and make Todos for your tasks and be a PROMAN.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
 
   "background": {
