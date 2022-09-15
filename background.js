@@ -77,12 +77,9 @@ chrome.management.getSelf()
 // clear the timer and target_for_break
 chrome.runtime.onStartup.addListener(()=>{
     console.log("startup");
-    chrome.storage.local.get("time", (items)=>{
-        var time = items["time"];
-        chrome.storage.local.set({
-            "time": 0,
-            "target_for_break": -1
-        });
+    chrome.storage.local.set({
+        "time": 0,
+        "target_for_break": -1
     });
 });
 
