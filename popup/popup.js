@@ -230,6 +230,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 // timer management ===================================================================
 const browsingTime = document.querySelector('#elapsedTime');
+const timeHistoryBtn = document.querySelector('.time-history-btn');
 const totalTimeData = document.querySelector('.total-time-data');
 // first handshake with bg.js
 
@@ -245,24 +246,25 @@ setInterval(()=>{
     if(minute<10) minute = '0'+minute;
     if(second<10) second = '0'+second;
     browsingTime.innerHTML = `<span>${hour}</span> <span>${minute}</span> <span>${second}</span>`;
-
-    chrome.storage.sync.get("time_history", (items)=>{
-      var total_time = items["time_history"];
-
-      var total_days = total_time.days;
-      var total_hours = total_time.hours;
-      var total_minutes = total_time.minutes;
-      var total_seconds = total_time.seconds;
-
-      if(total_days < 10) total_days = "0"+total_days;
-      if(total_hours < 10) total_hours = "0"+total_hours;
-      if(total_minutes < 10) total_minutes = "0"+total_minutes;
-      if(total_seconds < 10) total_seconds = "0"+total_seconds;
-      totalTimeData.innerHTML = `<span>${total_days}d</span>:<span>${total_hours}h</span>:<span>${total_minutes}m</span>:<span>${total_seconds}s</span>`;
-    });
   });
-   
 }, 1000);
+// display total time
+
+chrome.storage.sync.get("time_history", (items)=>{
+  var total_time = items["time_history"];
+
+  var total_days = total_time.days;
+  var total_hours = total_time.hours;
+  var total_minutes = total_time.minutes;
+  var total_seconds = total_time.seconds;
+
+  if(total_days < 10) total_days = "0"+total_days;
+  if(total_hours < 10) total_hours = "0"+total_hours;
+  if(total_minutes < 10) total_minutes = "0"+total_minutes;
+  if(total_seconds < 10) total_seconds = "0"+total_seconds;
+  totalTimeData.innerHTML = `<span>${total_days}d</span>:<span>${total_hours}h</span>:<span>${total_minutes}m</span>:<span>${total_seconds}s</span>`;
+});
+
 
 // break time management================================================
 bdf.addEventListener('submit',(e)=>{
