@@ -1,6 +1,7 @@
 # Productivity Management Chrome Extension (PROMAN)
  <img width="98" alt="logo" src="https://user-images.githubusercontent.com/95043790/187060251-b27d36bd-d4b4-4e4d-9737-f6f8822137f1.png">
 
+### chrome web store [link](https://chrome.google.com/webstore/detail/proman-extension/nonngcocohidigabfhlchncdhdnaofih)
 
 ## Indian Institute of Technology Guwahati Assam
 
@@ -30,12 +31,11 @@ Basically this is a chrome extension development project. The main purpose of th
 **Basic tech stacks required for this project are `HTML`, `CSS`, `Javascript` and most important part of the project is `chrome APIs` which can be found in [chrome developer documenation](https://developer.chrome.com/docs/extensions/).**
 
 ## Snapshots
-#### Extension's option page and Extension's popup
-<img width="536" alt="image" src="https://user-images.githubusercontent.com/95043790/186961252-4796b96f-e923-4d49-ad49-6400a535677e.png">
- <img width="350" alt="image" src="https://user-images.githubusercontent.com/95043790/186961067-9ba4d6f9-b624-4ba7-9905-411aca44a28f.png">
+#### Extension's popup
+<img width="377" alt="image" src="https://user-images.githubusercontent.com/95043790/190714765-35c3c74f-36b8-4879-b484-fce8baede57b.png">
 
 
-## Wanna test it out ?
+## Wanna test it out locally?
 1. download zip and extract
 2. goto `chrome://extensions`
 3. enable developer mode in top right corner
