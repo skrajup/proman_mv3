@@ -1,5 +1,4 @@
 # Productivity Management Chrome Extension (PROMAN)
- <img width="98" alt="logo" src="https://user-images.githubusercontent.com/95043790/187060251-b27d36bd-d4b4-4e4d-9737-f6f8822137f1.png">
 
 ## Indian Institute of Technology Guwahati Assam
 
