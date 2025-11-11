@@ -15,9 +15,6 @@
    - **Deptt.-** Mathematics and Computing (3rd year)
    - **Web mail-** [p.parmar@iitg.ac.in](mailto:p.parmar@iitg.ac.in)
 
-## Project description
-**Project problem statement can be found [here](https://www.dropbox.com/scl/fi/fij88g0at3h65pp51lia8/Productivity-Management.docx?dl=0&rlkey=nqbgm2t1r7fm26fvftmt6xaon)**
-
 **Project name:** PROMAN extension
 Basically this is a chrome extension development project. The main purpose of the this chrome extension is to increase the productivity of the user.
 
